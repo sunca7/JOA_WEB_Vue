@@ -20,7 +20,9 @@ export default {
 
 $primary-color: #003366;
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
