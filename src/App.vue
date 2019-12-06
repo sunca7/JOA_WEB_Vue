@@ -16,10 +16,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:200,300,400,500,600,700,800,900&display=swap");
-
-$primary-color: #003366;
-
 *,
 *::before,
 *::after {
@@ -27,13 +23,4 @@ $primary-color: #003366;
   margin: 0;
   padding: 0;
 }
-
-html, body {
-  background: $primary-color;
-  font-family: "Roboto Slab", serif;
-  color: white;
-  width: 100%;
-  min-height: 100vh;
-}
-
 </style>
