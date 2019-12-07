@@ -1,8 +1,10 @@
 <template>
   <div class="Home">
     <Nav />
-    <p id="title">Joa - Paris Korea</p>
-    <Categories />
+    <div class="container">
+      <p id="title">Joa - Paris Korea</p>
+      <Categories />
+    </div>
   </div>
 </template>
 
@@ -17,18 +19,12 @@ export default {
     Nav
   },
   data() {
-    return {
-    };
+    return {};
   },
-  mounted() {
-    
-  },
-  methods: {
-
-  }
+  mounted() {},
+  methods: {}
 };
 </script>
-
 
 <style lang="scss">
 html,
