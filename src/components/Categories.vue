@@ -1,21 +1,35 @@
 <template>
   <div class="Categories">
-    <Category id="category" />
+    <Category id="category" v-bind:categories="categories" />
+    <Places id="places" v-bind:places="places" />
   </div>
 </template>
 
 <script>
 import Category from "./Category";
+import Places from "./Places";
+import db from "@/db";
 
 export default {
   name: "Categories",
+  props: ["categories"],
   components: {
-    Category
+    Category,
+    Places
   },
   data() {
     return {
-      categories: []
+      places: []
     };
+  },
+  created() {
+    db.collection("places")
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          this.places.push(doc.data());
+        });
+      });
   }
 };
 </script>
@@ -29,5 +43,9 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   color: red;
+}
+
+#places {
+  width: 30vw;
 }
 </style>

@@ -3,7 +3,7 @@
     <Nav />
     <div class="container">
       <p id="title">Joa - Paris Korea</p>
-      <Categories />
+      <Categories v-bind:categories="categories" />
     </div>
   </div>
 </template>
@@ -11,6 +11,7 @@
 <script>
 import Nav from "./Nav";
 import Categories from "./Categories";
+import db from "@/db";
 
 export default {
   name: "Home",
@@ -19,10 +20,24 @@ export default {
     Nav
   },
   data() {
-    return {};
+    return {
+      categories: []
+    };
   },
-  mounted() {},
-  methods: {}
+  created() {
+    db.collection("categories")
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          this.categories.push(doc.data());
+        });
+      });
+  },
+  methods: {
+    log(item) {
+      console.log(item);
+    }
+  }
 };
 </script>
 

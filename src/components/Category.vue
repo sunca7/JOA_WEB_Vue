@@ -2,7 +2,7 @@
   <section id="categories">
     <div
       v-for="category in categories"
-      v-bind:key="category.id"
+      v-bind:key="category.order"
       class="category"
     >
       <a href="#" class="places darken">
@@ -16,32 +16,13 @@
 </template>
 
 <script>
-import db from "@/db";
-
 export default {
   name: "Category",
-  data() {
-    return {
-      categories: []
-    };
-  },
-  created() {
-    db.collection("categories")
-      .get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          this.categories.push(doc.data());
-        });
-      });
-  }
+  props: ["categories"]
 };
 </script>
 
 <style lang="scss" scoped>
-.categories {
-  width: 100vw;
-}
-
 .category {
   position: relative;
 
@@ -71,10 +52,11 @@ export default {
   transition: 0.3s;
 
   h1 {
+    font-size: calc(3rem + 1vw);
     color: white;
     position: absolute;
-    top: 50%;
-    left: 45%;
+    top: 40%;
+    left: 20%;
   }
 }
 </style>
