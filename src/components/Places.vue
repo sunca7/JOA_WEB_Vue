@@ -1,38 +1,72 @@
 <template>
-  <div class="places-container">
+  <div class="places-list">
     <div v-for="place in places" v-bind:key="place.id" class="places">
-      {{ log(place) }}
-      <div class="place-box">
-        <img :src="place.picture" alt="place-img" class="img-responsive" />
-        <div class="place-name">
-          <h1>{{ place.name }}</h1>
-        </div>
-      </div>
+      <!-- {{ log(place) }} -->
+      <img :src="place.picture" alt="place-img" class="img-responsive" />
+      <h1
+        class="name-center"
+        v-if="name(place.name)"
+      >{{ place.name.en || place.name.fr || place.name.kr }}</h1>
     </div>
   </div>
 </template>
 
 <script>
+// import router from "../router/index.js";
+
 export default {
   name: "Places",
   props: ["places"],
+  data() {
+    return {
+      items: []
+    };
+  },
+  create() {
+    this.items = "places";
+  },
   methods: {
     log(item) {
       console.log(item);
+    },
+    name(name) {
+      return name ? true : false;
     }
+    // redirectUser() {
+    //   // this method is called on button click
+    //   if (1 == 1) {
+    //     router.push("/homepage");
+    //     //this.$router.push('/places');
+    //   }
+    // }
   }
 };
 </script>
 
 <style lang="scss">
-.places-container {
+.place-list {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: stretch;
+}
+
+.places {
+  width: 25vw;
+  height: 30vh;
+  position: relative;
+  text-align: center;
+  color: white;
 
   img {
-    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  .name-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 </style>

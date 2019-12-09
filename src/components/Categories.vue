@@ -1,7 +1,11 @@
 <template>
-  <div class="Categories">
-    <Category id="category" v-bind:categories="categories" />
-    <Places id="places" v-bind:places="places" />
+  <div class="bottom">
+    <div class="categories-container">
+      <Category class="categories" v-bind:categories="categories" />
+    </div>
+    <div class="places-container">
+      <Places v-bind:places="places" />
+    </div>
   </div>
 </template>
 
@@ -35,17 +39,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#category {
-  padding-top: 5vh;
-  height: 60vh;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  flex-wrap: wrap;
-  color: red;
+.categories-container {
+  height: calc(100vh - 60px);
 }
 
-#places {
-  width: 30vw;
+.categories {
+  height: calc(100vh - 60px);
 }
 </style>

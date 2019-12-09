@@ -1,10 +1,10 @@
 <template>
   <div class="Home">
     <Nav />
-    <div class="container">
+    <!-- <div class="title-container">
       <p id="title">Joa - Paris Korea</p>
-      <Categories v-bind:categories="categories" />
-    </div>
+    </div>-->
+    <Categories v-bind:categories="categories" />
   </div>
 </template>
 
@@ -54,10 +54,16 @@ body {
 </style>
 
 <style lang="scss" scoped>
-#title {
-  padding-top: 10vh;
-  height: 30vh;
-  font-size: calc(1rem + 6vw);
+.title-container {
+  height: 150px;
+  line-height: 150px;
+  vertical-align: middle;
   text-align: center;
+
+  #title {
+    display: inline-block;
+    height: 30vh;
+    font-size: calc(1rem + 3vw);
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="nav-container">
     <div class="logo">
       <a href="#">
         <img src="../assets/logo.png" alt="logo" />
@@ -52,9 +52,9 @@ export default {
 };
 </script>
 
-
 <style lang="scss" scoped>
-.container {
+.nav-container {
+  width: 100vw;
   height: 60px;
   background-color: $accent-color;
   display: flex;
@@ -89,8 +89,8 @@ export default {
 
     a {
       text-decoration: none;
-        font-weight: map-get($map: $font-weights, $key: bold);
-    font-family: "Roboto Slab", serif;
+      font-weight: map-get($map: $font-weights, $key: bold);
+      font-family: "Roboto Slab", serif;
       color: $text-color;
       font-size: 14px;
       text-transform: uppercase;
@@ -137,7 +137,7 @@ export default {
 }
 
 @media only screen and (max-width: 650px) {
-  .container {
+  .nav-container {
     justify-content: space-between;
 
     .logo {

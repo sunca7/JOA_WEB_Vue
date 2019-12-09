@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Home />
+    <Home class="Home" />
   </div>
 </template>
 
@@ -22,5 +22,9 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.Home {
+  display: inline-block;
 }
 </style>
