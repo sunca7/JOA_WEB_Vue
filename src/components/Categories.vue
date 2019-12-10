@@ -39,6 +39,8 @@ export default {
   methods: {
     selectCategory(id) {
       this.categoryId = id;
+      console.log(this.places);
+      this.places = this.places.filter(i => i.id === this.categoryId);
       console.log("Categories " + this.categoryId);
     }
   }
