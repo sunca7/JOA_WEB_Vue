@@ -1,6 +1,6 @@
 <template>
   <div class="places-list">
-    <div v-for="place in places" v-bind:key="place.id" class="places">
+    <div v-for="place in selectPlaces" v-bind:key="place.id" class="places">
       <!-- {{ log(place) }} -->
       <img :src="place.picture" alt="place-img" class="img-responsive" />
       <h1
@@ -16,14 +16,23 @@
 
 export default {
   name: "Places",
-  props: ["places"],
+  props: ["places"]["categoryId"],
   data() {
     return {
-      items: []
+      items: [],
+      categoryId: ""
     };
   },
   create() {
     this.items = "places";
+    this.categoryId = "categoryId";
+    console.log(this.categoryId);
+  },
+  computed: {
+    selectPlaces: function() {
+      console.log(this.categoryId);
+      return this.items.filter(i => i.id === this.categoryId);
+    }
   },
   methods: {
     log(item) {

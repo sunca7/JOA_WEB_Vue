@@ -1,10 +1,10 @@
 <template>
   <div class="bottom">
     <div class="categories-container">
-      <Category class="categories" v-bind:categories="categories" />
+      <Category v-bind:categories="categories" v-on:select-category="selectCategory" />
     </div>
     <div class="places-container">
-      <Places v-bind:places="places" />
+      <Places v-bind:places="places" v-bind:categoryId="this.categoryId" />
     </div>
   </div>
 </template>
@@ -23,7 +23,8 @@ export default {
   },
   data() {
     return {
-      places: []
+      places: [],
+      categoryId: ""
     };
   },
   created() {
@@ -34,16 +35,20 @@ export default {
           this.places.push(doc.data());
         });
       });
+  },
+  methods: {
+    selectCategory(id) {
+      this.categoryId = id;
+      console.log("Categories " + this.categoryId);
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.categories-container {
-  height: calc(100vh - 60px);
-}
+$header: 60px;
 
-.categories {
-  height: calc(100vh - 60px);
+.categories-container {
+  height: calc(100vh - $header);
 }
 </style>

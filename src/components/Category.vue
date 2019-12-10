@@ -1,6 +1,11 @@
 <template>
   <div class="categories">
-    <div v-for="category in categories" v-bind:key="category.order" class="category">
+    <div
+      v-for="category in categories"
+      v-bind:key="category.order"
+      class="category"
+      @click="$emit('select-category', category.id)"
+    >
       <a href="#">
         <img :src="category.picture" alt="category-img" class="category-img" />
       </a>
@@ -29,6 +34,8 @@ export default {
 
   img {
     opacity: 0.3;
+    width: 100%;
+    height: 100%;
   }
 
   &:hover {
@@ -44,31 +51,4 @@ export default {
     transform: translate(-50%, -50%);
   }
 }
-
-//   &:hover {
-//     .category-name {
-//       opacity: 0.9;
-//       transition: 0.3s;
-//     }
-
-//     img {
-//       opacity: 0.3;
-//     }
-//   }
-
-//   img {
-//     display: block;
-//     margin: 0 auto;
-//     opacity: 1;
-//     transition: 0.3s;
-//   }
-// }
-
-//   h1 {
-//     font-size: calc(3rem + 1vw);
-//     color: white;
-//     position: absolute;
-//     top: 40%;
-//     left: 20%;
-//   }
 </style>
