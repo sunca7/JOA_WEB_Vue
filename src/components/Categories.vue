@@ -4,7 +4,7 @@
       <Category v-bind:categories="categories" v-on:select-category="selectCategory" />
     </div>
     <div class="places-container">
-      <Places v-bind:places="places" v-bind:categoryId="this.categoryId" />
+      <Places v-bind:places="selected" />
     </div>
   </div>
 </template>
@@ -13,7 +13,6 @@
 import Category from "./Category";
 import Places from "./Places";
 import db from "@/db";
-
 export default {
   name: "Categories",
   props: ["categories"],
@@ -24,6 +23,7 @@ export default {
   data() {
     return {
       places: [],
+      selected: [],
       categoryId: ""
     };
   },
@@ -39,9 +39,10 @@ export default {
   methods: {
     selectCategory(id) {
       this.categoryId = id;
-      console.log(this.places);
-      this.places = this.places.filter(i => i.id === this.categoryId);
-      console.log("Categories " + this.categoryId);
+      this.selected = this.places.filter(
+        i => i.category_id === this.categoryId
+      );
+      console.log(this.selected);
     }
   }
 };
@@ -49,7 +50,6 @@ export default {
 
 <style lang="scss" scoped>
 $header: 60px;
-
 .categories-container {
   height: calc(100vh - $header);
 }

@@ -13,18 +13,13 @@
 
 <script>
 // import router from "../router/index.js";
-
 export default {
   name: "Places",
   props: ["places"],
   data() {
-    return {
-      items: []
-    };
+    return {};
   },
-  create() {
-    this.items = "places";
-  },
+  create() {},
   methods: {
     log(item) {
       console.log(item);
@@ -42,6 +37,31 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.place-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+}
+.places {
+  width: 25vw;
+  height: 30vh;
+  position: relative;
+  text-align: center;
+  color: white;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  .name-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+</style>
 
 <style lang="scss">
 .place-list {
