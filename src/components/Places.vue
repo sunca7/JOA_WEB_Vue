@@ -53,6 +53,13 @@ export default {
   img {
     width: 100%;
     height: 100%;
+    opacity: 0.3;
+  }
+
+  &:hover {
+    img {
+      opacity: 1;
+    }
   }
   .name-center {
     position: absolute;

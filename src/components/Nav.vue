@@ -16,10 +16,10 @@
           <span id="close" v-on:click="Hide">×</span>
         </li>
         <li>
-          <a href="#">Home</a>
+          <router-link to="/">Home</router-link>
         </li>
         <li>
-          <a href="#">About</a>
+          <router-link to="/about">About</router-link>
         </li>
         <li>
           <a href="#">Contact</a>
