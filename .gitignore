@@ -21,3 +21,5 @@ yarn-error.log*
 *.sw?
 
 /src/db/index.js
+.env
+.env.production

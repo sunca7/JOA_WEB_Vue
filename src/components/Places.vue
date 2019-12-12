@@ -1,21 +1,29 @@
 <template>
-  <div class="places-list">
-    <div v-for="place in places" v-bind:key="place.id" class="places">
-      <!-- {{ log(place) }} -->
-      <img :src="place.picture" alt="place-img" class="img-responsive" />
-      <h1
-        class="name-center"
-        v-if="name(place.name)"
-      >{{ place.name.en || place.name.fr || place.name.kr }}</h1>
+  <div class="places-container">
+    <div class="places-map" v-if="places.length > 0">
+      <Maps v-bind:places="places" />
+    </div>
+    <div class="places-list">
+      <div v-for="place in places" v-bind:key="place.id" class="places">
+        <img :src="place.picture" alt="place-img" class="img-responsive" />
+        <h1
+          class="name-center"
+          v-if="name(place.name)"
+        >{{ place.name.en || place.name.fr || place.name.kr }}</h1>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// import router from "../router/index.js";
+import Maps from "./GoogleMaps";
+
 export default {
   name: "Places",
   props: ["places"],
+  components: {
+    Maps
+  },
   data() {
     return {};
   },
@@ -27,13 +35,6 @@ export default {
     name(name) {
       return name ? true : false;
     }
-    // redirectUser() {
-    //   // this method is called on button click
-    //   if (1 == 1) {
-    //     router.push("/homepage");
-    //     //this.$router.push('/places');
-    //   }
-    // }
   }
 };
 </script>

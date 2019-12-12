@@ -1,9 +1,9 @@
 <template>
   <div class="nav-container">
     <div class="logo">
-      <a href="#">
+      <router-link to="/">
         <img src="../assets/logo.png" alt="logo" />
-      </a>
+      </router-link>
     </div>
     <div class="navbar">
       <div class="icon-bar" id="bar" v-on:click="Show">
@@ -22,7 +22,7 @@
           <router-link to="/about">About</router-link>
         </li>
         <li>
-          <a href="#">Contact</a>
+          <router-link to="/contact">Contact</router-link>
         </li>
       </ul>
     </div>
@@ -90,9 +90,9 @@ export default {
     a {
       text-decoration: none;
       font-weight: map-get($map: $font-weights, $key: bold);
-      font-family: "Roboto Slab", serif;
+      font-family: "Titillium Web", sans-serif;
       color: $text-color;
-      font-size: 14px;
+      font-size: 20px;
       text-transform: uppercase;
       display: block;
       height: 60px;

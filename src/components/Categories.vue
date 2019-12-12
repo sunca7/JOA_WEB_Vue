@@ -13,6 +13,7 @@
 import Category from "./Category";
 import Places from "./Places";
 import db from "@/db";
+
 export default {
   name: "Categories",
   props: ["categories"],
@@ -42,7 +43,6 @@ export default {
       this.selected = this.places.filter(
         i => i.category_id === this.categoryId
       );
-      console.log(this.selected);
     }
   }
 };
@@ -50,7 +50,14 @@ export default {
 
 <style lang="scss" scoped>
 $header: 60px;
+
 .categories-container {
   height: calc(100vh - $header);
 }
+
+// .places-container {
+//   width: 100vw;
+//   display: flex;
+//   flex-direction: row;
+// }
 </style>
