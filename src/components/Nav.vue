@@ -54,7 +54,7 @@ export default {
 
 <style lang="scss" scoped>
 .nav-container {
-  width: 100vw;
+  width: 100%;
   height: 60px;
   background-color: $accent-color;
   display: flex;

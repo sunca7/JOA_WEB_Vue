@@ -54,10 +54,4 @@ $header: 60px;
 .categories-container {
   height: calc(100vh - $header);
 }
-
-// .places-container {
-//   width: 100vw;
-//   display: flex;
-//   flex-direction: row;
-// }
 </style>

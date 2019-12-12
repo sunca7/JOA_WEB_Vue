@@ -1,15 +1,17 @@
 <template>
   <div class="places-container">
-    <div class="places-map" v-if="places.length > 0">
+    <div class="places-mapplaces-map" v-if="places.length > 0">
       <Maps v-bind:places="places" />
     </div>
     <div class="places-list">
-      <div v-for="place in places" v-bind:key="place.id" class="places">
-        <img :src="place.picture" alt="place-img" class="img-responsive" />
-        <h1
-          class="name-center"
-          v-if="name(place.name)"
-        >{{ place.name.en || place.name.fr || place.name.kr }}</h1>
+      <div tag="div" v-for="place in places" v-bind:key="place.id" class="places">
+        <router-link :to="{ name: 'details', params: {place}}">
+          <img :src="place.picture" alt="place-img" class="img-responsive" />
+          <h1
+            class="name-center"
+            v-if="name(place.name)"
+          >{{ place.name.en || place.name.fr || place.name.kr }}</h1>
+        </router-link>
       </div>
     </div>
   </div>
